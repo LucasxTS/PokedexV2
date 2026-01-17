@@ -1,4 +1,4 @@
-package com.example.feature.onBoarding
+package com.example.feature.initialSplash
 
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.RepeatMode
