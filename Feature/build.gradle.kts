@@ -36,18 +36,23 @@ android {
     }
     kotlin {
         compilerOptions {
-            languageVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_0
+            languageVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_3
         }
     }
 }
 
 dependencies {
     implementation(project(":DesignSystems"))
+    implementation(project(":Core"))
 
+    implementation(libs.androidx.lifecycle.viewmodel.navigation3)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     testImplementation(libs.junit)
+    implementation(libs.koin.core)
+    implementation(libs.koin.android)
+    implementation(libs.koin.compose)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

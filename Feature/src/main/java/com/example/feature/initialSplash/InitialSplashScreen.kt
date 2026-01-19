@@ -13,9 +13,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.designsystems.R
 import com.example.designsystems.backgroundSplashColor
+import org.koin.androidx.compose.get
 
 @Composable
- fun InitialSplashScreen() {
+ fun InitialSplashScreen(initialSplashViewModel: InitialSplashViewModel) {
     Column {
         Box(
             contentAlignment = Alignment.Center,
@@ -35,5 +36,5 @@ import com.example.designsystems.backgroundSplashColor
 @Preview
 @Composable
 private fun SplashScreenPreview() {
-    InitialSplashScreen()
+    InitialSplashScreen(get())
 }

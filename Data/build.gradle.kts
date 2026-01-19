@@ -31,7 +31,7 @@ android {
     }
     kotlin {
         compilerOptions {
-            languageVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_0
+            languageVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_3
         }
     }
 }

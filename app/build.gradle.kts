@@ -36,7 +36,7 @@ android {
 
     kotlin {
         compilerOptions {
-            languageVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_0
+            languageVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_3
         }
     }
     buildFeatures {
@@ -46,7 +46,11 @@ android {
 
 dependencies {
     implementation(project(":Feature"))
+    implementation(project(":Core"))
 
+    implementation(libs.koin.core)
+    implementation(libs.koin.android)
+    implementation(libs.koin.compose)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.navigation3.runtime)
     implementation(libs.androidx.navigation3.ui)

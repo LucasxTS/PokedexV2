@@ -1,30 +1,29 @@
 package com.example.pokedexv2
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.remember
 import androidx.navigation3.runtime.NavEntry
-import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.ui.NavDisplay
+import com.example.core.navigation.NavigationController
+import com.example.core.navigation.NavKeys
 import com.example.feature.initialSplash.InitialSplashScreen
 import com.example.feature.welcomeView.WelcomeScreen
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun AppNavHost() {
-    val backstack = remember { mutableStateListOf<NavKey>(NavScreens.InitialSplashScreen) }
-
+fun AppNavHost(navigation: NavigationController) {
     NavDisplay(
-        backStack = backstack,
-        onBack = { backstack.removeLastOrNull() },
+        backStack = navigation.backStack,
+        onBack = { navigation.pop() },
         entryProvider = { key ->
             when (key) {
-                is NavScreens.InitialSplashScreen -> NavEntry(key) {
-                    InitialSplashScreen()
+                is NavKeys.InitialSplashScreen -> NavEntry(key) {
+                    InitialSplashScreen(
+                        initialSplashViewModel = koinViewModel()
+                    )
                 }
-                is NavScreens.WelcomeScreen -> NavEntry(key) {
+                is NavKeys.WelcomeScreen -> NavEntry(key) {
                     WelcomeScreen()
                 }
-                else -> throw IllegalStateException("Unknown screen $key")
             }
         }
     )
