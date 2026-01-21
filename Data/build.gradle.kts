@@ -37,6 +37,11 @@ android {
 }
 
 dependencies {
+    implementation(project(":Domain"))
+
+    implementation(libs.koin.core)
+    implementation(libs.koin.android)
+    implementation(libs.androidx.datastore.preferences)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
