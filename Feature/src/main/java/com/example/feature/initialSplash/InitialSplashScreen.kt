@@ -13,7 +13,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.designsystems.R
 import com.example.designsystems.backgroundSplashColor
-import org.koin.androidx.compose.get
 
 @Composable
  fun InitialSplashScreen(initialSplashViewModel: InitialSplashViewModel) {
@@ -36,5 +35,5 @@ import org.koin.androidx.compose.get
 @Preview
 @Composable
 private fun SplashScreenPreview() {
-    InitialSplashScreen(get())
+
 }

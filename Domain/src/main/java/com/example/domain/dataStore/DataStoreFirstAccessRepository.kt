@@ -1,6 +1,6 @@
 package com.example.domain.dataStore
 
- interface DataStoreUseCase {
+ interface DataStoreFirstAccessRepository {
      suspend fun hasAlreadyAccessed(): Boolean
      suspend fun setFirstAccess()
 }
