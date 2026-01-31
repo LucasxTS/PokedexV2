@@ -5,6 +5,7 @@ import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.ui.NavDisplay
 import com.example.core.navigation.NavKeys
 import com.example.core.navigation.NavigationController
+import com.example.feature.authChoice.AuthChoiceScreen
 import com.example.feature.initialSplash.InitialSplashScreen
 import com.example.feature.welcomeView.WelcomeScreen
 import org.koin.androidx.compose.koinViewModel
@@ -16,14 +17,18 @@ fun AppNavHost(navigation: NavigationController) {
         onBack = { navigation.pop() },
         entryProvider = { key ->
             when (key) {
-                is NavKeys.InitialSplashScreen -> NavEntry(key) {
+                NavKeys.InitialSplashScreen -> NavEntry(key) {
                     InitialSplashScreen(
                         initialSplashViewModel = koinViewModel(),
                         navigation = navigation
                     )
                 }
-                is NavKeys.WelcomeScreen -> NavEntry(key) {
+                NavKeys.WelcomeScreen -> NavEntry(key) {
                     WelcomeScreen(navigation = navigation)
+                }
+
+                NavKeys.AuthScreen -> NavEntry(key) {
+                    AuthChoiceScreen(navigation = navigation)
                 }
             }
         }

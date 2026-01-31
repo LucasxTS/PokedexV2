@@ -28,7 +28,7 @@ import com.example.feature.initialSplash.components.rememberPulseScale
 
     LaunchedEffect(state) {
         when (state) {
-            InitialSplashUiState.GoToLogin -> { }
+            InitialSplashUiState.GoToAuthChoice -> { navigation.navigateTo(NavKeys.AuthScreen) }
             InitialSplashUiState.GoToWelcome -> navigation.navigateTo(NavKeys.WelcomeScreen)
             InitialSplashUiState.Idle -> {}
         }

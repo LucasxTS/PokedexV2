@@ -24,7 +24,7 @@ class InitialSplashViewModel(
          viewModelScope.launch {
              val hasAccess = getUserFirstAccessUseCase()
              _userAccess.value = if (hasAccess) {
-                 InitialSplashUiState.GoToLogin
+                 InitialSplashUiState.GoToAuthChoice
              } else {
                  InitialSplashUiState.GoToWelcome
              }

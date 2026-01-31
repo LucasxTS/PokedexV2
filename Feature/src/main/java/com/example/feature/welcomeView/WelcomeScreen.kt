@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.core.navigation.NavKeys
 import com.example.core.navigation.Navigation
 import com.example.core.navigation.NavigationController
 import com.example.designsystems.white
@@ -46,7 +47,7 @@ fun WelcomeScreen(navigation: Navigation) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 24.dp),
+                .padding(vertical = 16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
@@ -58,7 +59,7 @@ fun WelcomeScreen(navigation: Navigation) {
 
             WelcomeButton(
                 pagerState = pagerState,
-                onFinish = { }
+                onFinish = { navigation.navigateTo(NavKeys.AuthScreen) }
             )
         }
     }

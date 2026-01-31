@@ -11,4 +11,7 @@ sealed interface NavKeys: NavKey {
 
     @Serializable
     data object WelcomeScreen : NavKeys
+
+    @Serializable
+    data object AuthScreen : NavKeys
 }

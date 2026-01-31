@@ -7,4 +7,9 @@
     <string name="second_pager_subtitle">Cadastre-se e mantenha seu perfil, pokémon favoritos, configurações e muito mais, salvos no aplicativo, mesmo sem conexão com a internet.</string>
     <string name="welcome_button_first_pager">Continuar</string>
     <string name="welcome_button_second_pager">Vamos começar!</string>
+    <string name="auth_choice_title">Está pronto para essa aventura?</string>
+    <string name="auth_choice_subtitle">Basta criar uma conta e começar a explorar o mundo dos Pokémons hoje!</string>
+    <string name="auth_choice_create_account_button">Criar conta</string>
+    <string name="auth_choice_already_have_account">Ja tenho uma conta</string>
+
 </resources>

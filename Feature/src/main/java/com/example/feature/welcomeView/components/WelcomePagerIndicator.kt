@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.designsystems.buttonColor
+import com.example.designsystems.blueButton
 import com.example.designsystems.unselected
 
 @Composable
@@ -26,7 +26,7 @@ fun PagerIndicator(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
             .fillMaxWidth()
-            .padding(24.dp)
+            .padding(16.dp)
     ) {
         repeat(pageCount) { index ->
             val isSelected = index == currentPage
@@ -39,7 +39,7 @@ fun PagerIndicator(
                         height = 8.dp
                     )
                     .background(
-                        color = if (isSelected) buttonColor else unselected,
+                        color = if (isSelected) blueButton else unselected,
                         shape = CircleShape
                     )
             )
