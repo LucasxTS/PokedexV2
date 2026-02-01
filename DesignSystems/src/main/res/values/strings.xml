@@ -11,5 +11,6 @@
     <string name="auth_choice_subtitle">Basta criar uma conta e começar a explorar o mundo dos Pokémons hoje!</string>
     <string name="auth_choice_create_account_button">Criar conta</string>
     <string name="auth_choice_already_have_account">Ja tenho uma conta</string>
+    <string name="register_create_account_title">Criar conta</string>
 
 </resources>
