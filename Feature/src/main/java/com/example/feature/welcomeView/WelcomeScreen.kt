@@ -59,7 +59,7 @@ fun WelcomeScreen(navigation: Navigation) {
 
             WelcomeButton(
                 pagerState = pagerState,
-                onFinish = { navigation.navigateTo(NavKeys.AuthScreen) }
+                onFinish = { navigation.clearBackStack(NavKeys.AuthScreen) }
             )
         }
     }

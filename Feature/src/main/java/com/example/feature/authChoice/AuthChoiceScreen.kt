@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.core.navigation.NavKeys
 import com.example.core.navigation.Navigation
 import com.example.core.navigation.NavigationController
 import com.example.designsystems.R
@@ -65,13 +66,13 @@ fun AuthChoiceScreen(navigation: Navigation) {
                 modifier = Modifier.padding(16.dp),
                 text = R.string.auth_choice_create_account_button,
                 onClick = {
-
+                    navigation.navigateTo(NavKeys.RegisterScreen)
                 }
             )
             Spacer(modifier = Modifier.height(16.dp))
 
             SignUpText {
-
+                navigation.navigateTo(NavKeys.LoginScreen)
             }
         }
     }

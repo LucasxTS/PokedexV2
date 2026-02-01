@@ -18,6 +18,6 @@ fun SignUpText(onCLick: () -> Unit) {
         color = blueButton,
         fontFamily = FontFamily(Font(R.font.poppins_semibold)),
         fontSize = 16.sp,
-        modifier = Modifier.clickable { onCLick }
+        modifier = Modifier.clickable { onCLick() }
     )
 }

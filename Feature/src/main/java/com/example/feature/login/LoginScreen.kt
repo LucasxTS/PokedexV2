@@ -1,4 +1,4 @@
-package com.example.feature.register
+package com.example.feature.login
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -20,7 +20,7 @@ import com.example.designsystems.components.SimpleTopBar
 import com.example.designsystems.white
 
 @Composable
-fun RegisterScreen(navigation: Navigation) {
+fun LoginScreen(navigation: Navigation) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -39,9 +39,9 @@ fun RegisterScreen(navigation: Navigation) {
             contentAlignment = Alignment.Center
         ) {
             BaseIllustratedImage(
-                image = R.drawable.register_img,
-                title = R.string.register_title_label,
-                subtitle = R.string.register_subtitle_label
+                image = R.drawable.login_image,
+                title = R.string.login_title_label,
+                subtitle = R.string.login_subtitle_label
             )
         }
         Column(
@@ -59,6 +59,6 @@ fun RegisterScreen(navigation: Navigation) {
 
 @Preview
 @Composable
-private fun RegisterScreenPreview() {
-    RegisterScreen(navigation = NavigationController())
+private fun LoginScreenPreview() {
+    LoginScreen(navigation = NavigationController())
 }

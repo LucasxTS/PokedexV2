@@ -7,6 +7,8 @@ import com.example.core.navigation.NavKeys
 import com.example.core.navigation.NavigationController
 import com.example.feature.authChoice.AuthChoiceScreen
 import com.example.feature.initialSplash.InitialSplashScreen
+import com.example.feature.login.LoginScreen
+import com.example.feature.register.RegisterScreen
 import com.example.feature.welcomeView.WelcomeScreen
 import org.koin.androidx.compose.koinViewModel
 
@@ -29,6 +31,14 @@ fun AppNavHost(navigation: NavigationController) {
 
                 NavKeys.AuthScreen -> NavEntry(key) {
                     AuthChoiceScreen(navigation = navigation)
+                }
+
+                NavKeys.RegisterScreen -> NavEntry(key) {
+                    RegisterScreen(navigation = navigation)
+                }
+
+                NavKeys.LoginScreen -> NavEntry(key) {
+                    LoginScreen(navigation = navigation)
                 }
             }
         }
