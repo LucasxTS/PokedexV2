@@ -37,7 +37,12 @@ android {
 }
 
 dependencies {
-
+    implementation(project(":Core"))
+    implementation(libs.firebase.auth.ktx)
+    implementation(libs.play.services.auth.v2100)
+    implementation(libs.androidx.credentials)
+    implementation(libs.androidx.credentials.play.services.auth)
+    implementation(libs.googleid)
     implementation(libs.koin.core)
     implementation(libs.koin.android)
     implementation(libs.androidx.core.ktx)

@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -38,13 +39,25 @@ android {
 
 dependencies {
     implementation(project(":Domain"))
+    implementation(project(":Core"))
 
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.firestore)
+    implementation(libs.play.services.auth)
+    implementation(libs.androidx.credentials.v130)
+    implementation(libs.androidx.credentials.play.services.auth.v130)
+    implementation(libs.googleid.v111)
+    implementation(libs.androidx.credentials)
+    implementation(libs.androidx.credentials.play.services.auth)
+    implementation(libs.googleid)
+    implementation(libs.firebase.analytics)
     implementation(libs.koin.core)
     implementation(libs.koin.android)
     implementation(libs.androidx.datastore.preferences)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+    implementation(libs.firebase.auth)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

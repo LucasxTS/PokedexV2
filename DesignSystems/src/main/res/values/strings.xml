@@ -18,7 +18,6 @@
     <string name="login_header_title">Entrar</string>
     <string name="login_title_label">Que bom ter aqui novamente!</string>
     <string name="login_subtitle_label">Como deseja se conectar?</string>
-
-
+    <string name="sing_up_label">Continuar com o Google</string>
 
 </resources>

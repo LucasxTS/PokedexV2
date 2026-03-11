@@ -1,6 +1,7 @@
 package com.example.feature.login
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,6 +16,7 @@ import com.example.core.navigation.Navigation
 import com.example.core.navigation.NavigationController
 import com.example.designsystems.R
 import com.example.designsystems.components.BaseIllustratedImage
+import com.example.designsystems.components.GoogleSignInButton
 import com.example.designsystems.components.PrimaryButton
 import com.example.designsystems.components.SimpleTopBar
 import com.example.designsystems.white
@@ -45,9 +47,16 @@ fun LoginScreen(navigation: Navigation) {
             )
         }
         Column(
+            verticalArrangement = Arrangement.spacedBy(12.dp),
             modifier = Modifier
                 .padding(16.dp)
         ) {
+            GoogleSignInButton(
+                onClick = {
+
+                }
+            )
+
             PrimaryButton(
                 text = R.string.register_button_title,
             ) {

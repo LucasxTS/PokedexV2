@@ -1,6 +1,7 @@
 package com.example.feature.register
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,12 +16,14 @@ import com.example.core.navigation.Navigation
 import com.example.core.navigation.NavigationController
 import com.example.designsystems.R
 import com.example.designsystems.components.BaseIllustratedImage
+import com.example.designsystems.components.GoogleSignInButton
 import com.example.designsystems.components.PrimaryButton
 import com.example.designsystems.components.SimpleTopBar
 import com.example.designsystems.white
+import com.example.di.viewModel
 
 @Composable
-fun RegisterScreen(navigation: Navigation) {
+fun RegisterScreen(navigation: Navigation, registerScreenViewModel: RegisterScreenViewModel) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -45,9 +48,16 @@ fun RegisterScreen(navigation: Navigation) {
             )
         }
         Column(
+            verticalArrangement = Arrangement.spacedBy(12.dp),
             modifier = Modifier
                 .padding(16.dp)
         ) {
+            GoogleSignInButton(
+                onClick = {
+                    registerScreenViewModel.continueWithGoogle()
+                }
+            )
+
             PrimaryButton(
                 text = R.string.register_button_title,
             ) {
@@ -60,5 +70,8 @@ fun RegisterScreen(navigation: Navigation) {
 @Preview
 @Composable
 private fun RegisterScreenPreview() {
-    RegisterScreen(navigation = NavigationController())
+//    RegisterScreen(
+//        navigation = NavigationController(),
+//        registerScreenViewModel =
+//    )
 }

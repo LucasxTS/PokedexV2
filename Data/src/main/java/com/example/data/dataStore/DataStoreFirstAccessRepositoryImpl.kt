@@ -1,6 +1,6 @@
 package com.example.data.dataStore
 
-import com.example.domain.dataStore.DataStoreFirstAccessRepository
+import com.example.domain.dataStore.repository.DataStoreFirstAccessRepository
 
 class DataStoreFirstAccessRepositoryImpl(private val dataStore: AppDataStore): DataStoreFirstAccessRepository {
 

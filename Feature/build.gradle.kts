@@ -52,6 +52,7 @@ dependencies {
     implementation(libs.material)
     testImplementation(libs.junit)
     implementation(libs.koin.core)
+    implementation(libs.firebase.ui.auth)
     implementation(libs.koin.android)
     implementation(libs.koin.compose)
     implementation(libs.androidx.compose.foundation)

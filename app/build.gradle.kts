@@ -52,10 +52,13 @@ dependencies {
     implementation(project(":Domain"))
 
     implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.analytics)
+
+    debugImplementation(libs.leakcanary.android)
     implementation(libs.koin.core)
     implementation(libs.koin.android)
     implementation(libs.koin.compose)
+    implementation(libs.firebase.auth)
+    implementation(platform(libs.firebase.bom))
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.navigation3.runtime)
     implementation(libs.androidx.navigation3.ui)

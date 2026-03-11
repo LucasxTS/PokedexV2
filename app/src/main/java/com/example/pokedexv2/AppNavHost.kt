@@ -34,7 +34,10 @@ fun AppNavHost(navigation: NavigationController) {
                 }
 
                 NavKeys.RegisterScreen -> NavEntry(key) {
-                    RegisterScreen(navigation = navigation)
+                    RegisterScreen(
+                        navigation = navigation,
+                        registerScreenViewModel = koinViewModel()
+                    )
                 }
 
                 NavKeys.LoginScreen -> NavEntry(key) {
