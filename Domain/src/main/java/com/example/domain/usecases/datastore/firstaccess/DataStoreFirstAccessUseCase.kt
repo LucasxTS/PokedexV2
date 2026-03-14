@@ -1,6 +1,6 @@
-package com.example.domain.dataStore.useCase
+package com.example.domain.usecases.datastore.firstaccess
 
-import com.example.domain.dataStore.repository.DataStoreFirstAccessRepository
+import com.example.domain.repositories.datastore.firstaccess.DataStoreFirstAccessRepository
 
 class GetUserFirstAccessUseCase(private val repository: DataStoreFirstAccessRepository) {
 

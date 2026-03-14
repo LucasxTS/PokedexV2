@@ -1,8 +1,8 @@
-package com.example.core.fireBase
+package com.example.domain.repositories.firebase
 
 import com.google.firebase.auth.FirebaseUser
 
-interface FireBaseAuthProvider {
+interface FireBaseAuthProviderRepository {
     suspend fun signIn(): Result<FirebaseUser>
     suspend fun signOut()
 }

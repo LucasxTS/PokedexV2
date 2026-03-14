@@ -22,7 +22,7 @@ import com.example.designsystems.components.SimpleTopBar
 import com.example.designsystems.white
 
 @Composable
-fun LoginScreen(navigation: Navigation) {
+fun LoginScreen(navigation: Navigation, loginScreenViewModel: LoginScreenViewModel) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -53,7 +53,7 @@ fun LoginScreen(navigation: Navigation) {
         ) {
             GoogleSignInButton(
                 onClick = {
-
+                    loginScreenViewModel.continueWithGoogle()
                 }
             )
 
@@ -69,5 +69,8 @@ fun LoginScreen(navigation: Navigation) {
 @Preview
 @Composable
 private fun LoginScreenPreview() {
-    LoginScreen(navigation = NavigationController())
+    LoginScreen(
+        navigation = NavigationController(),
+        loginScreenViewModel = TODO()
+    )
 }

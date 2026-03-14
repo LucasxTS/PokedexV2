@@ -41,6 +41,7 @@ dependencies {
     implementation(project(":Domain"))
     implementation(project(":Core"))
 
+    implementation(libs.gson)
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.firestore)
     implementation(libs.play.services.auth)

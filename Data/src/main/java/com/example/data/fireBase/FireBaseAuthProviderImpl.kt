@@ -3,7 +3,7 @@ package com.example.data.fireBase
 import android.content.Context
 import androidx.credentials.CredentialManager
 import androidx.credentials.GetCredentialRequest
-import com.example.core.fireBase.FireBaseAuthProvider
+import com.example.domain.repositories.firebase.FireBaseAuthProviderRepository
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import com.google.firebase.auth.FirebaseAuth
@@ -15,7 +15,7 @@ class FireBaseAuthProviderImpl(
     private val context: Context,
     private val fireBaseAuth: FirebaseAuth,
     private val webClientId: String
-): FireBaseAuthProvider {
+): FireBaseAuthProviderRepository {
 
     override suspend fun signIn(): Result<FirebaseUser> = runCatching {
         val googleIdOption = GetGoogleIdOption.Builder()

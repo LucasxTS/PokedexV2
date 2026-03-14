@@ -10,17 +10,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.core.navigation.Navigation
-import com.example.core.navigation.NavigationController
 import com.example.designsystems.R
 import com.example.designsystems.components.BaseIllustratedImage
 import com.example.designsystems.components.GoogleSignInButton
 import com.example.designsystems.components.PrimaryButton
 import com.example.designsystems.components.SimpleTopBar
 import com.example.designsystems.white
-import com.example.di.viewModel
 
 @Composable
 fun RegisterScreen(navigation: Navigation, registerScreenViewModel: RegisterScreenViewModel) {
@@ -65,13 +62,4 @@ fun RegisterScreen(navigation: Navigation, registerScreenViewModel: RegisterScre
             }
         }
     }
-}
-
-@Preview
-@Composable
-private fun RegisterScreenPreview() {
-//    RegisterScreen(
-//        navigation = NavigationController(),
-//        registerScreenViewModel =
-//    )
 }

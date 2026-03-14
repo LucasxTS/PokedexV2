@@ -2,6 +2,7 @@ package com.example.data.dataStore
 
 import android.content.Context
 import androidx.datastore.preferences.core.booleanPreferencesKey
+import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 
 val Context.dataStore by preferencesDataStore(
@@ -9,3 +10,4 @@ val Context.dataStore by preferencesDataStore(
 )
 
 val FIRST_ACCESS_KEY = booleanPreferencesKey("first_user_access")
+fun userKey(uuid: String) = stringPreferencesKey("user_$uuid")

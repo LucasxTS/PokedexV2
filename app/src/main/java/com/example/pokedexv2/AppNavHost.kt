@@ -41,7 +41,10 @@ fun AppNavHost(navigation: NavigationController) {
                 }
 
                 NavKeys.LoginScreen -> NavEntry(key) {
-                    LoginScreen(navigation = navigation)
+                    LoginScreen(
+                        navigation = navigation,
+                        loginScreenViewModel = koinViewModel()
+                    )
                 }
             }
         }
