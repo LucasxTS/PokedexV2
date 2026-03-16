@@ -7,12 +7,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.res.painterResource
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.core.navigation.NavKeys
 import com.example.core.navigation.Navigation
 import com.example.designsystems.R
@@ -24,7 +24,7 @@ import com.example.feature.initialSplash.components.rememberPulseScale
     initialSplashViewModel: InitialSplashViewModel,
     navigation: Navigation
  ) {
-     val state by initialSplashViewModel.userAccess.collectAsState()
+     val state by initialSplashViewModel.userAccess.collectAsStateWithLifecycle()
 
     LaunchedEffect(state) {
         when (state) {

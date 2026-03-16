@@ -25,9 +25,9 @@ class LoginWithGoogleUseCase(
                     email = firebaseUser.email,
                     favoritePokemonList = emptyList()
             ))
-            LoginResult.NewAccount(firebaseUser)
+            LoginResult.NewAccount
         } else {
-            LoginResult.OldAccount(firebaseUser)
+            LoginResult.OldAccount
         }
     }
 }
