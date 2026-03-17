@@ -1,5 +1,10 @@
 package com.example.feature.login
 
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -8,31 +13,70 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.core.navigation.Navigation
-import com.example.core.navigation.NavigationController
 import com.example.designsystems.R
 import com.example.designsystems.components.BaseIllustratedImage
 import com.example.designsystems.components.GoogleSignInButton
+import com.example.designsystems.components.LoadingScreen
 import com.example.designsystems.components.PrimaryButton
 import com.example.designsystems.components.SimpleTopBar
 import com.example.designsystems.white
+import com.example.feature.base.viewstates.AuthViewState
 
 @Composable
 fun LoginScreen(navigation: Navigation, loginScreenViewModel: LoginScreenViewModel) {
+
+    val viewState by loginScreenViewModel.uiState.collectAsStateWithLifecycle()
+
+    AnimatedContent(
+        targetState = viewState,
+        transitionSpec = {
+            fadeIn(animationSpec = tween(300)) togetherWith fadeOut(animationSpec = tween(300))
+        },
+    ) { state ->
+        when (state) {
+            is AuthViewState.Error -> Unit
+            is AuthViewState.Idle -> LoginScreenContent(
+                onGoogleSignIn = { loginScreenViewModel.continueWithGoogle() },
+                onLogin = { },
+                onBack = { navigation.pop() }
+            )
+            is AuthViewState.Loading -> LoadingScreen()
+            is AuthViewState.Navigate -> Unit
+        }
+
+        LaunchedEffect(viewState) {
+            when (viewState) {
+                is AuthViewState.Navigate.ToHome -> {}
+                is AuthViewState.Navigate.ToWelcome -> {}
+                else -> Unit
+            }
+        }
+    }
+}
+
+@Composable
+private fun LoginScreenContent(
+    onGoogleSignIn: () -> Unit,
+    onLogin: () -> Unit,
+    onBack: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(white)
-    )
-    {
+    ) {
         SimpleTopBar(
             modifier = Modifier.padding(16.dp),
             title = R.string.register_header_title,
-            onBackClick = { navigation.pop() }
+            onBackClick = onBack
         )
         Box(
             modifier = Modifier
@@ -48,20 +92,13 @@ fun LoginScreen(navigation: Navigation, loginScreenViewModel: LoginScreenViewMod
         }
         Column(
             verticalArrangement = Arrangement.spacedBy(12.dp),
-            modifier = Modifier
-                .padding(16.dp)
+            modifier = Modifier.padding(16.dp)
         ) {
-            GoogleSignInButton(
-                onClick = {
-                    loginScreenViewModel.continueWithGoogle()
-                }
-            )
-
+            GoogleSignInButton(onClick = onGoogleSignIn)
             PrimaryButton(
                 text = R.string.register_button_title,
-            ) {
-
-            }
+                onClick = onLogin
+            )
         }
     }
 }
@@ -69,8 +106,9 @@ fun LoginScreen(navigation: Navigation, loginScreenViewModel: LoginScreenViewMod
 @Preview
 @Composable
 private fun LoginScreenPreview() {
-    LoginScreen(
-        navigation = NavigationController(),
-        loginScreenViewModel = TODO()
+    LoginScreenContent(
+        onGoogleSignIn = {},
+        onLogin = {},
+        onBack = {}
     )
 }

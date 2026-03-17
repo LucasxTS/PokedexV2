@@ -1,40 +1,34 @@
 package com.example.feature.register
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.example.domain.models.LoginResult
 import com.example.domain.usecases.auth.LoginWithGoogleUseCase
+import com.example.feature.base.BaseAuthViewModel
+import com.example.feature.base.viewstates.AuthViewState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
 
 class RegisterScreenViewModel(
-    private val loginWithGoogleUseCase: LoginWithGoogleUseCase,
-) : ViewModel() {
+    loginWithGoogleUseCase: LoginWithGoogleUseCase,
+) : BaseAuthViewModel(loginWithGoogleUseCase) {
 
-    private val _uiState = MutableStateFlow<RegisterViewState>(RegisterViewState.Idle)
-    val uiState: StateFlow<RegisterViewState> = _uiState.asStateFlow()
+    private val _uiState = MutableStateFlow<AuthViewState>(AuthViewState.Idle)
+    val uiState: StateFlow<AuthViewState> = _uiState.asStateFlow()
 
-    fun continueWithGoogle() {
-        _uiState.update { RegisterViewState.Loading }
-        viewModelScope.launch {
-            loginWithGoogleUseCase()
-                .onSuccess { result ->
-                    when (result) {
-                        is LoginResult.NewAccount -> {
-                            _uiState.update { RegisterViewState.Navigate.ToWelcome }
-                        }
-
-                        is LoginResult.OldAccount -> {
-                            _uiState.update { RegisterViewState.Navigate.ToHome }
-                        }
-                    }
-                }
-                .onFailure {
-                    println(it.message)
-                }
-        }
+    override fun onLoading() {
+        _uiState.update { AuthViewState.Loading }
     }
+
+    override fun onNewAccount() {
+        _uiState.update { AuthViewState.Navigate.ToWelcome }
+    }
+
+    override fun onExistingAccount() {
+        _uiState.update { AuthViewState.Navigate.ToHome }
+    }
+
+    override fun onError(message: String?) {
+        println(message)
+    }
+
 }

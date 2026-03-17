@@ -28,6 +28,7 @@ import com.example.designsystems.components.LoadingScreen
 import com.example.designsystems.components.PrimaryButton
 import com.example.designsystems.components.SimpleTopBar
 import com.example.designsystems.white
+import com.example.feature.base.viewstates.AuthViewState
 
 @Composable
 fun RegisterScreen(
@@ -44,22 +45,22 @@ fun RegisterScreen(
         },
     ) { state ->
         when (state) {
-            is RegisterViewState.Loading -> LoadingScreen()
-            is RegisterViewState.Idle -> RegisterScreenContent(
+            is AuthViewState.Loading -> LoadingScreen()
+            is AuthViewState.Idle -> RegisterScreenContent(
                 onGoogleSignIn = { registerScreenViewModel.continueWithGoogle() },
                 onRegister = { /* viewModel.register() */ },
                 onBack = { navigation.pop() }
             )
 
-            is RegisterViewState.Error -> {}
-            is RegisterViewState.Navigate -> Unit
+            is AuthViewState.Error -> Unit
+            is AuthViewState.Navigate -> Unit
         }
     }
 
     LaunchedEffect(viewState) {
         when (viewState) {
-            is RegisterViewState.Navigate.ToHome -> {}
-            is RegisterViewState.Navigate.ToWelcome -> {}
+            is AuthViewState.Navigate.ToHome -> {}
+            is AuthViewState.Navigate.ToWelcome -> {}
             else -> Unit
         }
     }

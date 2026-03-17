@@ -1,19 +1,33 @@
 package com.example.feature.login
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.example.domain.usecases.auth.LoginWithGoogleUseCase
-import kotlinx.coroutines.launch
+import com.example.feature.base.BaseAuthViewModel
+import com.example.feature.base.viewstates.AuthViewState
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 
-class LoginScreenViewModel(private val loginWithGoogleUseCase: LoginWithGoogleUseCase) : ViewModel() {
+class LoginScreenViewModel(loginWithGoogleUseCase: LoginWithGoogleUseCase) : BaseAuthViewModel(loginWithGoogleUseCase) {
 
-    fun continueWithGoogle() {
-        viewModelScope.launch {
-            loginWithGoogleUseCase()
-                .onSuccess {
-                }
-                .onFailure {
-                }
-        }
+    private val _uiState = MutableStateFlow<AuthViewState>(AuthViewState.Idle)
+    val uiState: StateFlow<AuthViewState> = _uiState.asStateFlow()
+
+    override fun onLoading() {
+        _uiState.update { AuthViewState.Loading }
     }
+
+    override fun onNewAccount() {
+        _uiState.update { AuthViewState.Navigate.ToWelcome }
+    }
+
+    override fun onExistingAccount() {
+        _uiState.update { AuthViewState.Navigate.ToHome }
+    }
+
+    override fun onError(message: String?) {
+        println(message)
+    }
+
+
 }
