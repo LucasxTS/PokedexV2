@@ -6,10 +6,13 @@ import androidx.navigation3.ui.NavDisplay
 import com.example.core.navigation.NavKeys
 import com.example.core.navigation.NavigationController
 import com.example.feature.authChoice.AuthChoiceScreen
+import com.example.feature.createAccount.CreateAccountScreen
 import com.example.feature.initialSplash.InitialSplashScreen
 import com.example.feature.login.LoginScreen
 import com.example.feature.register.RegisterScreen
-import com.example.feature.welcomeView.WelcomeScreen
+import com.example.feature.welcomeViews.WelcomeScreen
+import com.example.feature.welcomeViews.welcomeback.WelcomeBackScreen
+import com.example.feature.welcomeViews.welcomenewuser.WelcomeNewUser
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -25,6 +28,7 @@ fun AppNavHost(navigation: NavigationController) {
                         navigation = navigation
                     )
                 }
+
                 NavKeys.WelcomeScreen -> NavEntry(key) {
                     WelcomeScreen(navigation = navigation)
                 }
@@ -44,6 +48,21 @@ fun AppNavHost(navigation: NavigationController) {
                     LoginScreen(
                         navigation = navigation,
                         loginScreenViewModel = koinViewModel()
+                    )
+                }
+
+                NavKeys.WelcomeBack -> NavEntry(key) {
+                    WelcomeBackScreen(navigation = navigation)
+                }
+
+                NavKeys.WelcomeNewUser -> NavEntry(key) {
+                    WelcomeNewUser(navigation = navigation)
+                }
+
+                NavKeys.CreateAccountScreen -> NavEntry(key) {
+                    CreateAccountScreen(
+                        navigation = navigation,
+                        viewModel = koinViewModel()
                     )
                 }
             }

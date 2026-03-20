@@ -20,4 +20,14 @@ sealed interface NavKeys: NavKey {
 
     @Serializable
     data object LoginScreen: NavKeys
+
+    @Serializable
+    data object WelcomeNewUser: NavKeys
+
+    @Serializable
+    data object WelcomeBack: NavKeys
+
+    @Serializable
+    data object CreateAccountScreen: NavKeys
+
 }

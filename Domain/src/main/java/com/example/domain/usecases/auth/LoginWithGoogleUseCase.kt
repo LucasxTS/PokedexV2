@@ -5,7 +5,6 @@ import com.example.domain.models.User
 import com.example.domain.repositories.firebase.FireBaseAuthProviderRepository
 import com.example.domain.usecases.datastore.user.GetUserUseCase
 import com.example.domain.usecases.datastore.user.SaveUserUseCase
-import com.google.firebase.auth.FirebaseUser
 
 class LoginWithGoogleUseCase(
     private val fireBaseAuthProvider: FireBaseAuthProviderRepository,
@@ -23,8 +22,9 @@ class LoginWithGoogleUseCase(
                     uuid = firebaseUser.uid,
                     name = firebaseUser.displayName,
                     email = firebaseUser.email,
-                    favoritePokemonList = emptyList()
-            ))
+                    favoritePokemonList = emptyList(),
+                    password = null
+                ))
             LoginResult.NewAccount
         } else {
             LoginResult.OldAccount

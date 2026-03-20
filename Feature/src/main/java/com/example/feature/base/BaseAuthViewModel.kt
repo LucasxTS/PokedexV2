@@ -1,5 +1,6 @@
 package com.example.feature.base
 
+import androidx.credentials.exceptions.GetCredentialCancellationException
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.models.LoginResult
@@ -14,6 +15,7 @@ abstract class BaseAuthViewModel(
     protected abstract fun onNewAccount()
     protected abstract fun onExistingAccount()
     protected abstract fun onError(message: String?)
+    protected abstract fun onCloseCredentialRequest()
 
     fun continueWithGoogle() {
         onLoading()
@@ -25,7 +27,12 @@ abstract class BaseAuthViewModel(
                         is LoginResult.OldAccount -> onExistingAccount()
                     }
                 }
-                .onFailure { onError(it.message) }
+                .onFailure { error ->
+                    when(error) {
+                        is GetCredentialCancellationException -> onCloseCredentialRequest()
+                        else -> onError(error.message)
+                    }
+                }
         }
     }
 }

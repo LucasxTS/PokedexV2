@@ -1,6 +1,7 @@
 package com.example.di
 
 
+import com.example.feature.createAccount.CreateAccountViewModel
 import com.example.feature.initialSplash.InitialSplashViewModel
 import com.example.feature.login.LoginScreenViewModel
 import com.example.feature.register.RegisterScreenViewModel
@@ -12,4 +13,5 @@ val viewModel = module {
     viewModelOf(::InitialSplashViewModel)
     viewModelOf(::RegisterScreenViewModel)
     viewModelOf(::LoginScreenViewModel)
+    viewModelOf(::CreateAccountViewModel)
 }

@@ -18,16 +18,18 @@ class LoginScreenViewModel(loginWithGoogleUseCase: LoginWithGoogleUseCase) : Bas
     }
 
     override fun onNewAccount() {
-        _uiState.update { AuthViewState.Navigate.ToWelcome }
+        _uiState.update { AuthViewState.Navigate.ToWelcomeNewUser }
     }
 
     override fun onExistingAccount() {
-        _uiState.update { AuthViewState.Navigate.ToHome }
+        _uiState.update { AuthViewState.Navigate.ToWelcomeBack }
     }
 
     override fun onError(message: String?) {
         println(message)
     }
 
-
+    override fun onCloseCredentialRequest() {
+        TODO("Not yet implemented")
+    }
 }

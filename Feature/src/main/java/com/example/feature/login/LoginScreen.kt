@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.core.navigation.NavKeys
 import com.example.core.navigation.Navigation
 import com.example.designsystems.R
 import com.example.designsystems.components.BaseIllustratedImage
@@ -48,14 +49,21 @@ fun LoginScreen(navigation: Navigation, loginScreenViewModel: LoginScreenViewMod
                 onLogin = { },
                 onBack = { navigation.pop() }
             )
+
             is AuthViewState.Loading -> LoadingScreen()
             is AuthViewState.Navigate -> Unit
         }
 
         LaunchedEffect(viewState) {
             when (viewState) {
-                is AuthViewState.Navigate.ToHome -> {}
-                is AuthViewState.Navigate.ToWelcome -> {}
+                is AuthViewState.Navigate.ToWelcomeNewUser -> {
+                    navigation.clearBackStack(NavKeys.WelcomeNewUser)
+                }
+
+                is AuthViewState.Navigate.ToWelcomeBack -> {
+                    navigation.clearBackStack(NavKeys.WelcomeBack)
+                }
+
                 else -> Unit
             }
         }

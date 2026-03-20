@@ -6,7 +6,7 @@ sealed class AuthViewState {
     data class Error(val message: String?) : AuthViewState()
 
     sealed class Navigate : AuthViewState() {
-        object ToHome : Navigate()
-        object ToWelcome : Navigate()
+        object ToWelcomeNewUser : Navigate()
+        object ToWelcomeBack : Navigate()
     }
 }

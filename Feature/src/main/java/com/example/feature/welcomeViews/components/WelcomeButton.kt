@@ -1,4 +1,4 @@
-package com.example.feature.welcomeView.components
+package com.example.feature.welcomeViews.components
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.PagerState

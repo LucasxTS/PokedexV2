@@ -1,4 +1,4 @@
-package com.example.feature.welcomeView
+package com.example.feature.welcomeViews
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes

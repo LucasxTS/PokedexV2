@@ -1,7 +1,7 @@
-package com.example.feature.welcomeView.components
+package com.example.feature.welcomeViews.components
 
 import com.example.designsystems.R
-import com.example.feature.welcomeView.WelcomePage
+import com.example.feature.welcomeViews.WelcomePage
 
 val pagesList = listOf(
     WelcomePage(

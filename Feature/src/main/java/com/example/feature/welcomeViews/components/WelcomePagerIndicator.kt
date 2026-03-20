@@ -1,4 +1,4 @@
-package com.example.feature.welcomeView.components
+package com.example.feature.welcomeViews.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

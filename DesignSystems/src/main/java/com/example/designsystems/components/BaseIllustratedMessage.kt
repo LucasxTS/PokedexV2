@@ -3,7 +3,6 @@ package com.example.designsystems.components
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -17,11 +16,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.designsystems.R
 import com.example.designsystems.gray600
-import com.example.designsystems.white
 
 @Composable
 fun BaseIllustratedImage(
@@ -34,7 +33,6 @@ fun BaseIllustratedImage(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(24.dp),
         modifier = modifier
-            .background(white)
             .padding(16.dp)
     ) {
         Image(
@@ -59,4 +57,14 @@ fun BaseIllustratedImage(
             textAlign = TextAlign.Center,
         )
     }
+}
+
+@Preview
+@Composable
+private fun BaseIllustratedImagePreview() {
+    BaseIllustratedImage(
+        image = R.drawable.login_image,
+        title = R.string.register_button_title,
+        subtitle = R.string.login_title_label
+    )
 }

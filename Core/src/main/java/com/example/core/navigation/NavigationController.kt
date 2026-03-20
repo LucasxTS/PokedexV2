@@ -17,5 +17,4 @@ class NavigationController: Navigation {
         backStack.clear()
         backStack.add(navKey)
     }
-
 }

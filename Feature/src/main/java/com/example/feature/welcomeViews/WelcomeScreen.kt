@@ -1,4 +1,4 @@
-package com.example.feature.welcomeView
+package com.example.feature.welcomeViews
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -17,10 +17,10 @@ import com.example.core.navigation.NavKeys
 import com.example.core.navigation.Navigation
 import com.example.core.navigation.NavigationController
 import com.example.designsystems.white
-import com.example.feature.welcomeView.components.PagerIndicator
-import com.example.feature.welcomeView.components.WelcomeButton
-import com.example.feature.welcomeView.components.WelcomePageContent
-import com.example.feature.welcomeView.components.pagesList
+import com.example.feature.welcomeViews.components.PagerIndicator
+import com.example.feature.welcomeViews.components.WelcomeButton
+import com.example.feature.welcomeViews.components.WelcomePageContent
+import com.example.feature.welcomeViews.components.pagesList
 
 @Composable
 fun WelcomeScreen(navigation: Navigation) {
