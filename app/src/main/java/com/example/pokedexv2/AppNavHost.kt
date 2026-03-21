@@ -8,7 +8,7 @@ import com.example.core.navigation.NavigationController
 import com.example.feature.authChoice.AuthChoiceScreen
 import com.example.feature.createAccount.CreateAccountScreen
 import com.example.feature.initialSplash.InitialSplashScreen
-import com.example.feature.login.LoginScreen
+import com.example.feature.login.loginchoice.LoginChoiceScreen
 import com.example.feature.register.RegisterScreen
 import com.example.feature.welcomeViews.WelcomeScreen
 import com.example.feature.welcomeViews.welcomeback.WelcomeBackScreen
@@ -44,8 +44,8 @@ fun AppNavHost(navigation: NavigationController) {
                     )
                 }
 
-                NavKeys.LoginScreen -> NavEntry(key) {
-                    LoginScreen(
+                NavKeys.LoginChoiceScreen -> NavEntry(key) {
+                    LoginChoiceScreen(
                         navigation = navigation,
                         loginScreenViewModel = koinViewModel()
                     )

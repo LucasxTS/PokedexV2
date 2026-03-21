@@ -1,4 +1,4 @@
-package com.example.feature.login
+package com.example.feature.login.loginchoice
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.core.tween
@@ -32,7 +32,7 @@ import com.example.designsystems.white
 import com.example.feature.base.viewstates.AuthViewState
 
 @Composable
-fun LoginScreen(navigation: Navigation, loginScreenViewModel: LoginScreenViewModel) {
+fun LoginChoiceScreen(navigation: Navigation, loginScreenViewModel: LoginChoiceScreenViewModel) {
 
     val viewState by loginScreenViewModel.uiState.collectAsStateWithLifecycle()
 
@@ -44,7 +44,7 @@ fun LoginScreen(navigation: Navigation, loginScreenViewModel: LoginScreenViewMod
     ) { state ->
         when (state) {
             is AuthViewState.Error -> Unit
-            is AuthViewState.Idle -> LoginScreenContent(
+            is AuthViewState.Idle -> LoginChoiceScreenContent(
                 onGoogleSignIn = { loginScreenViewModel.continueWithGoogle() },
                 onLogin = { },
                 onBack = { navigation.pop() }
@@ -71,7 +71,7 @@ fun LoginScreen(navigation: Navigation, loginScreenViewModel: LoginScreenViewMod
 }
 
 @Composable
-private fun LoginScreenContent(
+private fun LoginChoiceScreenContent(
     onGoogleSignIn: () -> Unit,
     onLogin: () -> Unit,
     onBack: () -> Unit
@@ -113,8 +113,8 @@ private fun LoginScreenContent(
 
 @Preview
 @Composable
-private fun LoginScreenPreview() {
-    LoginScreenContent(
+private fun LoginChoiceChoiceScreenPreview() {
+    LoginChoiceScreenContent(
         onGoogleSignIn = {},
         onLogin = {},
         onBack = {}

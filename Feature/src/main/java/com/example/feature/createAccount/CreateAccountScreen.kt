@@ -48,7 +48,7 @@ fun CreateAccountScreen(navigation: Navigation, viewModel: CreateAccountViewMode
             onContinue = viewModel::nextStep,
             onBack = {
                 navigation.pop()
-                viewModel.clear()
+                viewModel.clearStates()
             }
         )
     }

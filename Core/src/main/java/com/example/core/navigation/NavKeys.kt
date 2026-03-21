@@ -19,7 +19,7 @@ sealed interface NavKeys: NavKey {
     data object RegisterScreen: NavKeys
 
     @Serializable
-    data object LoginScreen: NavKeys
+    data object LoginChoiceScreen: NavKeys
 
     @Serializable
     data object WelcomeNewUser: NavKeys

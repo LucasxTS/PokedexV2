@@ -1,4 +1,4 @@
-package com.example.feature.login
+package com.example.feature.login.loginchoice
 
 import com.example.domain.usecases.auth.LoginWithGoogleUseCase
 import com.example.feature.base.BaseAuthViewModel
@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
-class LoginScreenViewModel(loginWithGoogleUseCase: LoginWithGoogleUseCase) : BaseAuthViewModel(loginWithGoogleUseCase) {
+class LoginChoiceScreenViewModel(loginWithGoogleUseCase: LoginWithGoogleUseCase) : BaseAuthViewModel(loginWithGoogleUseCase) {
 
     private val _uiState = MutableStateFlow<AuthViewState>(AuthViewState.Idle)
     val uiState: StateFlow<AuthViewState> = _uiState.asStateFlow()

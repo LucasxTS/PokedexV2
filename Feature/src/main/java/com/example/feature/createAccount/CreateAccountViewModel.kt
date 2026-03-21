@@ -32,7 +32,8 @@ class CreateAccountViewModel: ViewModel() {
         }
     }
 
-    fun clear() {
+    fun clearStates() {
+        _uiState.update { CreateAccountViewState.Email }
         email = ""
         password = ""
         name = ""

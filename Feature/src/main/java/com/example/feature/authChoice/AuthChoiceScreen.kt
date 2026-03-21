@@ -72,7 +72,7 @@ fun AuthChoiceScreen(navigation: Navigation) {
             Spacer(modifier = Modifier.height(16.dp))
 
             SignUpText {
-                navigation.navigateTo(NavKeys.LoginScreen)
+                navigation.navigateTo(NavKeys.LoginChoiceScreen)
             }
         }
     }
