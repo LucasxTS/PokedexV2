@@ -30,4 +30,7 @@ sealed interface NavKeys: NavKey {
     @Serializable
     data object CreateAccountScreen: NavKeys
 
+    @Serializable
+    data object LoginScreen: NavKeys
+
 }

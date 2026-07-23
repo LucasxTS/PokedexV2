@@ -17,7 +17,7 @@ class FireBaseAuthProviderImpl(
     private val webClientId: String
 ): FireBaseAuthProviderRepository {
 
-    override suspend fun signIn(): Result<FirebaseUser> = runCatching {
+    override suspend fun signInWithGoogle(): Result<FirebaseUser> = runCatching {
         val googleIdOption = GetGoogleIdOption.Builder()
             .setFilterByAuthorizedAccounts(false)
             .setServerClientId(webClientId)
@@ -39,6 +39,18 @@ class FireBaseAuthProviderImpl(
 
         authResult.user ?: throw Exception("Usuário nulo após login")
     }
+
+    override suspend fun signInWithPassword(
+        email: String,
+        password: String
+    ): Result<FirebaseUser> = runCatching {
+        val result = fireBaseAuth
+            .signInWithEmailAndPassword(email, password)
+            .await()
+
+        result.user ?: throw Exception("User not found")
+    }
+
 
     override suspend fun signOut() {
         fireBaseAuth.signOut()

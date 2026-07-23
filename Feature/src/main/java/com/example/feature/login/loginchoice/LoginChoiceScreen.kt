@@ -46,7 +46,7 @@ fun LoginChoiceScreen(navigation: Navigation, loginScreenViewModel: LoginChoiceS
             is AuthViewState.Error -> Unit
             is AuthViewState.Idle -> LoginChoiceScreenContent(
                 onGoogleSignIn = { loginScreenViewModel.continueWithGoogle() },
-                onLogin = { },
+                onLogin = { navigation.navigateTo(NavKeys.LoginScreen) },
                 onBack = { navigation.pop() }
             )
 

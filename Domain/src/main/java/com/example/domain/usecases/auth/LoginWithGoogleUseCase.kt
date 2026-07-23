@@ -12,7 +12,7 @@ class LoginWithGoogleUseCase(
     private val getUserUseCase: GetUserUseCase
 ) {
     suspend operator fun invoke(): Result<LoginResult> = runCatching {
-        val firebaseUser = fireBaseAuthProvider.signIn().getOrThrow()
+        val firebaseUser = fireBaseAuthProvider.signInWithGoogle().getOrThrow()
 
         val existUser = getUserUseCase(firebaseUser.uid)
 
